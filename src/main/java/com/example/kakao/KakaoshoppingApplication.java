@@ -1,4 +1,4 @@
-package com.example.kakaoshopping;
+package com.example.kakao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
