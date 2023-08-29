@@ -10,3 +10,7 @@
 - 각자 브랜치에 readme에 구상한 테이블 적어놓기 - url도 괜찮
 ## 1주차 정답
 - resource > db > teardown.sql을 보고 확인하기
+
+## User 쪽 개발하기
+- spring security 사용
+
