@@ -15,11 +15,15 @@ public class OptionService {
     private final OptionJPARepository optionRepository;
 
     public List<OptionResponse.FindByProductIdDTO> findByProductId(int id) {
-
+        List<Option> optionList = optionRepository.findByProductId(id);
+        List<OptionResponse.FindByProductIdDTO> responseDTO = optionList.stream().map(OptionResponse.FindByProductIdDTO::new).collect(Collectors.toList());
+        return responseDTO;
     }
 
     public List<OptionResponse.FindAllDTO> findAll() {
-
+        List<Option> optionList = optionRepository.findAll();
+        List<OptionResponse.FindAllDTO> responseDTO = optionList.stream().map(OptionResponse.FindAllDTO::new).collect(Collectors.toList());
+        return responseDTO;
     }
 
     public String findOptionNameByOptionId(int id) {

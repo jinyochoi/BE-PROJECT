@@ -17,21 +17,25 @@ public class OptionRestController {
 
     /**
      * @param id
-     *  TODO : ProductId에 해당하는 Option 조회
+     * ProductId에 해당하는 Option 조회
      * @return
      * 성공 시 Option 리스트 반환
      */
     @GetMapping("/products/{id}/options")
     public ResponseEntity<?> findByProductId(@PathVariable int id) {
-
+        List<OptionResponse.FindByProductIdDTO> responseDTOs = optionService.findByProductId(id);
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(responseDTOs);
+        return ResponseEntity.ok(apiResult);
     }
 
     /**
      * @return
-     * TODO : Option 전체 반환
+     * Option 전체 반환
      */
     @GetMapping("/options")
     public ResponseEntity<?> findAll() {
-
+        List<OptionResponse.FindAllDTO> responseDTOs = optionService.findAll();
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(responseDTOs);
+        return ResponseEntity.ok(apiResult);
     }
 }
