@@ -19,12 +19,16 @@ public class ProductRestController {
     // TODO : (기능4) 전체 상품 목록 조회
     @GetMapping("/products")
     public ResponseEntity<?> findAll(@RequestParam(defaultValue = "0") int page) {
-
+        List<ProductResponse.FindAllDTO> responseDTO = productService.findAll(page);
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(responseDTO);
+        return ResponseEntity.ok(apiResult);
     }
 
     // TODO : (기능5) 개별 상품 상세 조회
     @GetMapping("/products/{id}")
     public ResponseEntity<?> findById(@PathVariable int id) {
-
+        ProductResponse.FindByIdDTO responseDTO = productService.findById(id);
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(responseDTO);
+        return ResponseEntity.ok(apiResult);
     }
 }
